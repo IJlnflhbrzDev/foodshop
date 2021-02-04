@@ -1,3 +1,62 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 body {
-  background: red;
+  margin: 20px auto;
+  background: url("https://tse2.mm.bing.net/th?id=OIP.6nobc7InxFjkBRhyhuKMEgHaHa&pid=Api&P=0&w=300&h=300");
+}
+
+.navbar {
+  background: rgb(59, 1, 194) !important;
+  .nav-item {
+    margin-right: 30px;
+
+    .nav-link {
+      color: white;
+      cursor: pointer;
+    }
+  }
+  .navbar-brand {
+    font-size: 23px;
+    font-style: italic;
+    letter-spacing: 1px;
+    margin-left: 10px;
+  }
+}
+
+.CardProduct {
+  width: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  .card-body {
+    height: 200px;
+    padding: 5px auto;
+    text-align: center;
+
+    .detail-title {
+      h5 {
+        font-weight: bold;
+        letter-spacing: 1px;
+      }
+      span {
+        font-size: 13px;
+        color: red;
+        cursor: pointer;
+        &:hover {
+          font-weight: bold;
+          color: teal;
+        }
+      }
+    }
+  }
+}
+// MediaQury==================================================================
+@media (max-width: 768px) {
+  .navbar {
+    .navbar-brand {
+      margin-left: 0;
+    }
+  }
 }
