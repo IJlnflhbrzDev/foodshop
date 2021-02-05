@@ -1,19 +1,23 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import CardProduct from './CardProduct'
 export default class Product extends Component {
      state = {
-          ProductMakanan : []
+          ProductMakanan: []
      }
 
      GetProduct = async () => {
-        await  fetch('https://www.themealdb.com/api/json/v1/1/search.php?s=')
-          .then(res => res.json())
-          .then(resjson => {
-               this.setState({
-               ProductMakanan : resjson.meals
+          await fetch('https://www.themealdb.com/api/json/v1/1/search.php?s=')
+               .then(res => res.json())
+               .then(resjson => {
+                    this.setState({
+                         ProductMakanan: resjson.meals
+                    })
                })
-               console.log("berhasil Ambil Data");
-     })
+     }
+
+     handleGodetail = (id) => {
+          console.log(this.props);
+          console.log('id paramss ', id)
      }
      componentDidMount() {
           console.log("sedang menunggu daata")
@@ -26,9 +30,9 @@ export default class Product extends Component {
                          {
                               this.state.ProductMakanan.map(item => {
                                    return <CardProduct
-                                        src={item.strMealThumb}
-                                        title={item.strMeal}
-                                        desc={item.strInstructions}
+                                        key={item.idMeal}
+                                        dataProduct={item}
+                                        Godetail={this.handleGodetail}
 
                                    />
 

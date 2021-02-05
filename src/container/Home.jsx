@@ -25,7 +25,7 @@ export default class Home extends Component {
                                              <li className="nav-item">
                                                   <Link to="/users" className="nav-link" >Users</Link>
                                         </li>
-\
+
                                              <li className="nav-item">
                                                   <Link to="/product" className="nav-link" >Product</Link>
                                              </li>
