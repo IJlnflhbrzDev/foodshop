@@ -52,11 +52,39 @@ body {
     }
   }
 }
+#detailProduct {
+  display: flex !important;
+  color: white;
+  strong {
+    color: black;
+  }
+  button {
+    padding: 5px 20px;
+    background-color: black;
+    color: white;
+  }
+  img {
+    height: 400px;
+    margin-right: 10px;
+  }
+}
 // MediaQury==================================================================
 @media (max-width: 768px) {
   .navbar {
     .navbar-brand {
       margin-left: 0;
+    }
+  }
+  #detailProduct {
+    display: flex;
+    flex-wrap: wrap;
+    img {
+      width: 100%;
+      height: auto;
+      margin-bottom: 10px;
+    }
+    button {
+      width: 100%;
     }
   }
 }

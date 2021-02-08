@@ -58,9 +58,46 @@ body {
   color: teal;
 }
 
+#detailProduct {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  color: white;
+}
+
+#detailProduct strong {
+  color: black;
+}
+
+#detailProduct button {
+  padding: 5px 20px;
+  background-color: black;
+  color: white;
+}
+
+#detailProduct img {
+  height: 400px;
+  margin-right: 10px;
+}
+
 @media (max-width: 768px) {
   .navbar .navbar-brand {
     margin-left: 0;
+  }
+  #detailProduct {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  #detailProduct img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+  }
+  #detailProduct button {
+    width: 100%;
   }
 }
 /*# sourceMappingURL=Style.css.map */

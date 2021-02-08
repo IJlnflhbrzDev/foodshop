@@ -1,23 +1,23 @@
 import React, { Component } from 'react'
 import CardProduct from './CardProduct'
+import axios from "axios"
 export default class Product extends Component {
      state = {
           ProductMakanan: []
      }
 
      GetProduct = async () => {
-          await fetch('https://www.themealdb.com/api/json/v1/1/search.php?s=')
-               .then(res => res.json())
+          await axios.get('https://www.themealdb.com/api/json/v1/1/search.php?s=')
                .then(resjson => {
                     this.setState({
-                         ProductMakanan: resjson.meals
+                         ProductMakanan: resjson.data.meals
                     })
+                    console.log(resjson);
                })
      }
 
      handleGodetail = (id) => {
-          console.log(this.props);
-          console.log('id paramss ', id)
+          this.props.history.push(`/product-detail/${id}`)
      }
      componentDidMount() {
           console.log("sedang menunggu daata")
@@ -25,13 +25,13 @@ export default class Product extends Component {
      }
      render() {
           return (
-               <>
+                                        <>
                     <div className="row">
                          {
                               this.state.ProductMakanan.map(item => {
                                    return <CardProduct
                                         key={item.idMeal}
-                                        dataProduct={item}
+                                        data={item}
                                         Godetail={this.handleGodetail}
 
                                    />
@@ -39,7 +39,7 @@ export default class Product extends Component {
                               })
                          }
                     </div>
-               </>
-          )
+                    </>
+                         )
      }
 }
