@@ -2,6 +2,7 @@ import React, { Component, createContext } from 'react'
 import {BrowserRouter as Router ,Switch, Link , Route} from "react-router-dom"
 import GoDetail from '../component/Product/GoDetail'
 import Product from '../component/Product/Product'
+import LoginPage from './LoginPage';
 export const rootContext = createContext();
  const Provider = rootContext.Provider;
 
@@ -47,6 +48,9 @@ export default class Home extends Component {
                                              <li className="nav-item">
                                                   <Link to="/product" className="nav-link" >Product</Link>
                                              </li>
+                                             <li className="nav-item">
+                                                  <Link to="/login" className="nav-link" >Login</Link>
+                                             </li>
 
                                              <li className="nav-item">
                                                   <span className="nav-link disabled text-warning">Hasil Pesanan { this.state.totalPesaan}</span>
@@ -61,8 +65,9 @@ export default class Home extends Component {
                     <Switch>
                          <Route exact path="/" component={HomePage} />
                          <Route path="/product" component={Product} />
+                         <Route path="/login" component={LoginPage} />
                          <Route path="/product-detail/:idProduct" component={GoDetail} />
-                    </Switch>
+                              </Switch>
                          </div>
                     </Provider>
                </Router>
@@ -74,10 +79,7 @@ export default class Home extends Component {
 function HomePage() {
      return (
           <div className="d-flex justify-content-center align-items-center">
-
                <h1>Percobaan Toko Online Ini Masih Dalam Development !</h1>
-
-
           </div>
  )
 }
