@@ -2,15 +2,14 @@ import React, { Component, createContext } from 'react'
 import {BrowserRouter as Router ,Switch, Link , Route} from "react-router-dom"
 import GoDetail from '../../component/Product/GoDetail'
 import Product from '../../component/Product/Product'
-import LoginPage from '../LoginPage';
 import HomePages from "../HomePages/HomePages"
-
+import LoginPage from "../LoginPage"
 export const rootContext = createContext();
 const Provider = rootContext.Provider;
 
 export default class RouterHome extends Component {
      state = {
-          totalPesaan : 0
+          totalPesaan: 0
      }
 
      dispacth = (action) => {
@@ -36,7 +35,8 @@ export default class RouterHome extends Component {
                               dispacth : this.dispacth
                          }
                     }>
-                    <div className="w-100">
+                         <div className="w-100">
+                              <div className="handleNavbar">
                               <nav className="navbar navbar-expand-md navbar-dark bg-primary">
                                    <span className="navbar-brand" >FoodShoop.com</span>
                                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -45,17 +45,14 @@ export default class RouterHome extends Component {
                                    <div className="collapse navbar-collapse" id="navbarNav">
                                         <ul className="navbar-nav ms-auto">
                                              <li className="nav-item">
-                                                  <Link to="/" className="nav-link">Home</Link>
+                                                  <Link to="/Home" className="nav-link">Home</Link>
                                              </li>
                                              <li className="nav-item">
                                                   <Link to="/product" className="nav-link" >Product</Link>
                                              </li>
-                                             <li className="nav-item">
-                                                  <Link to="/login" className="nav-link" >Login</Link>
-                                             </li>
 
                                              <li className="nav-item">
-                                                  <Link to="/hubungikami" className="nav-link">Hubungi Kami</Link>
+                                                  <Link to="/hubungikami" className="nav-link">HubungiKami</Link>
                                              </li>
 
                                              <li className="nav-item">
@@ -64,17 +61,18 @@ export default class RouterHome extends Component {
                                         </ul>
                                    </div>
                               </nav>
+                              </div>
+
 
      {/* ALL COMPONENTSS  */}
 
 
                     <Switch>
-                         <Route exact path="/" component={HomePages} />
+                         <Route  path="/Home" component={HomePages} />
                          <Route path="/product" component={Product} />
-                         <Route path="/login" component={LoginPage} />
-                         <Route path="*" component={() => "404 NOT FOUNT"} />
+                         <Route exact path="/" component={LoginPage} />
                          <Route path="/product-detail/:idProduct" component={GoDetail} />
-                              </Switch>
+                    </Switch>
                          </div>
                     </Provider>
                </Router>

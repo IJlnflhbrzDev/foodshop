@@ -51,7 +51,7 @@ export default class GoDetail extends Component {
      render() {
           return (
                <Fragment>
-                    <div id="detailProduct" >
+                    <div id="detailProduct" className="text-dark">
                          <h1><strike>Mohon Tunggu Sebentar...</strike></h1>
                     </div>
                     <CounterPesanan />
