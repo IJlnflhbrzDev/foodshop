@@ -1,12 +1,14 @@
 import React, { Component, createContext } from 'react'
 import {BrowserRouter as Router ,Switch, Link , Route} from "react-router-dom"
-import GoDetail from '../component/Product/GoDetail'
-import Product from '../component/Product/Product'
-import LoginPage from './LoginPage';
-export const rootContext = createContext();
- const Provider = rootContext.Provider;
+import GoDetail from '../../component/Product/GoDetail'
+import Product from '../../component/Product/Product'
+import LoginPage from '../LoginPage';
+import HomePages from "../HomePages/HomePages"
 
-export default class Home extends Component {
+export const rootContext = createContext();
+const Provider = rootContext.Provider;
+
+export default class RouterHome extends Component {
      state = {
           totalPesaan : 0
      }
@@ -34,7 +36,7 @@ export default class Home extends Component {
                               dispacth : this.dispacth
                          }
                     }>
-                    <div className="container border w-100 bg-primary p-2">
+                    <div className="w-100">
                               <nav className="navbar navbar-expand-md navbar-dark bg-primary">
                                    <span className="navbar-brand" >FoodShoop.com</span>
                                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -53,6 +55,10 @@ export default class Home extends Component {
                                              </li>
 
                                              <li className="nav-item">
+                                                  <Link to="/hubungikami" className="nav-link">Hubungi Kami</Link>
+                                             </li>
+
+                                             <li className="nav-item">
                                                   <span className="nav-link disabled text-warning">Hasil Pesanan { this.state.totalPesaan}</span>
                                              </li>
                                         </ul>
@@ -63,9 +69,10 @@ export default class Home extends Component {
 
 
                     <Switch>
-                         <Route exact path="/" component={HomePage} />
+                         <Route exact path="/" component={HomePages} />
                          <Route path="/product" component={Product} />
                          <Route path="/login" component={LoginPage} />
+                         <Route path="*" component={() => "404 NOT FOUNT"} />
                          <Route path="/product-detail/:idProduct" component={GoDetail} />
                               </Switch>
                          </div>
@@ -76,10 +83,3 @@ export default class Home extends Component {
 }
 
 
-function HomePage() {
-     return (
-          <div className="d-flex justify-content-center align-items-center">
-               <h1>Percobaan Toko Online Ini Masih Dalam Development !</h1>
-          </div>
- )
-}

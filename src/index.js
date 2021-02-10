@@ -3,11 +3,11 @@ import ReactDOM from 'react-dom';
 import "./Styless/Style.css"
 
 import reportWebVitals from './reportWebVitals';
-import Home from './container/Home';
+import RouterHome from './container/RouterHome/RouterHome';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Home />
+    <RouterHome />
   </React.StrictMode>,
   document.getElementById('root')
 );

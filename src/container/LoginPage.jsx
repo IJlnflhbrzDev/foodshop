@@ -18,7 +18,7 @@ export default class LoginPage extends Component {
           e.preventDefault();
           firebase.auth().createUserWithEmailAndPassword(email,password)
                .then((user) => {
-                    alert('Berhasil Menyimpan Data Kamu! Terimakasih:v');
+                    alert('Berhasil Menyimpan Data Kamu! Terimakasih:v',user);
 
                     setTimeout(() => {
                          this.setState({
