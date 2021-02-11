@@ -37,7 +37,7 @@ export default class RouterHome extends Component {
                     }>
                          <div className="w-100">
                               <div className="handleNavbar">
-                              <nav className="navbar navbar-expand-md navbar-dark bg-primary">
+                              <nav className="navbar navbar-expand-md navbar-dark ">
                                    <span className="navbar-brand" >FoodShoop.com</span>
                                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                                         <span className="navbar-toggler-icon"></span>
@@ -56,7 +56,7 @@ export default class RouterHome extends Component {
                                              </li>
 
                                              <li className="nav-item">
-                                                  <span className="nav-link disabled text-warning">Hasil Pesanan { this.state.totalPesaan}</span>
+                                                  <span className="nav-link text-success disabled ">Hasil Pesanan { this.state.totalPesaan}</span>
                                              </li>
                                         </ul>
                                    </div>

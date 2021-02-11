@@ -1,12 +1,67 @@
 @import url("https://fonts.googleapis.com/css2?family=Lobster&family=Satisfy&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap");
+
+$titleFont: "lobster" cursive;
+$descFont: "Poppins", sans-serif;
+// ================================================== MIXIN
+@mixin CllipyAfter($styleClipy, $bg) {
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: -3;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: $bg;
+    clip-path: $styleClipy;
+  }
+}
+@mixin CllipyBefore($styleClipy, $bg) {
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: -3;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+
+    background-color: $bg;
+    clip-path: $styleClipy;
+  }
+}
+
+@mixin TitleSpanBeforeContet($top) {
+  position: absolute;
+  top: $top;
+  left: 0;
+  right: 0;
+  font-weight: normal;
+  font-size: 100px;
+  display: block;
+  margin-bottom: 0;
+  color: #f3c063;
+  line-height: 1;
+  font-family: "Great Vibes", cursive;
+  margin-top: 0;
+  z-index: -1;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
+html,
+body {
+  overflow-x: hidden;
+}
+section {
+  padding: 30px 10px;
+}
 .navbar {
-  background: rgb(59, 1, 194) !important;
+  background: #faa811;
   .nav-item {
     margin-right: 30px;
 
@@ -76,7 +131,7 @@
     color: white;
     h3 {
       font-size: 60px;
-      font-family: "Lobster", cursive;
+      font-family: $titleFont;
       font-weight: bold;
       z-index: 2;
       letter-spacing: 3px;
@@ -222,6 +277,37 @@ button {
   }
 }
 
+// ============================================================Comp_About
+#Comp_About {
+  position: relative;
+  @include CllipyAfter(
+    polygon(0% 0%, 100% 0, 24% 49%, 100% 100%, 0% 100%),
+    gold
+  );
+
+  .HeadingSection {
+    position: relative;
+    .sub_Heading {
+      @include TitleSpanBeforeContet(50px);
+      letter-spacing: 2px;
+    }
+    .title_Heading {
+      font-size: 50px;
+      line-height: 5;
+      text-align: left;
+      font-weight: bold;
+      letter-spacing: 3px;
+      margin-top: 10px;
+    }
+    .description_Heading {
+      font-family: sans-serif;
+      margin-top: -70px;
+      color: black;
+      font-size: 17px;
+    }
+  }
+}
+
 // MediaQury==================================================================
 @media (max-width: 768px) {
   .navbar {
@@ -244,5 +330,9 @@ button {
 
   form {
     width: 80%;
+  }
+
+  #Comp_About {
+    @include CllipyAfter(polygon(0% 0, 100% 100%, 100% 0), gold);
   }
 }
